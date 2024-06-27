@@ -1,0 +1,17 @@
+.new {
+    background-color: var(--color-primary-desaturated-dark-cyan);
+    max-width: min-content;
+    padding-top: 3px;
+    padding-inline: 10px;
+    border-radius: 25px;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500; 
+}
+
+.new__text {
+    text-transform: uppercase;
+    color: white;
+
+
+}

@@ -1,0 +1,13 @@
+.jobList {
+    padding: 50px 20px;
+
+}
+
+
+
+@media screen and (min-width : 576px) {
+    .jobList {
+        padding: 75px 120px;
+
+    }
+}

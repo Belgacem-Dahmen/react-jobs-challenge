@@ -1,0 +1,16 @@
+.header {
+
+    background-image: url('/src/assets/bg-header-mobile.svg');
+    background-repeat: no-repeat;
+    min-height: 150px;
+    background-color: var(--color-primary-desaturated-dark-cyan);
+}
+
+@media screen and (min-width : 376px) {
+    .header {
+
+        background-image: url('/src/assets/bg-header-desktop.svg');
+        background-repeat: no-repeat;
+
+    }
+}
