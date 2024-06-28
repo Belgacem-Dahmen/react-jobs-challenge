@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     min-height: 150px;
     background-color: var(--color-primary-desaturated-dark-cyan);
+   
 }
 
 @media screen and (min-width : 376px) {

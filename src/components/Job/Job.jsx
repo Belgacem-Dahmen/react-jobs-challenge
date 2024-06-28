@@ -1,17 +1,19 @@
 import React from 'react'
 import "./Job.css"
 
-"./images/eyecam-co.svg"
+
 import Featured from "../Tags/Featured/Featured"
 import New from '../Tags/New/New'
 import Language from "../Tags/Language/Language"
 
 
 
-function Job({ job }) {
+function Job(props) {
+    const { job, addFilter } = props;
     return (
-        <div className='job'>
 
+
+        <div className={` ${job.new ? 'job new-job' : 'job'}`}>
             <img src={`${job.logo}`} alt={`${job.company} logo`} className="job__company-logo" />
             <div className='job__details'>
                 <p className='job__company-name'> {job.company}</p>
@@ -28,8 +30,8 @@ function Job({ job }) {
             </div>
 
             <div className="job__languages">
-                {job.languages.map((language, i) => (
-                    <Language key={i} Language={language} />
+                {job.languages.concat(job.tools).map((language, i) => (
+                    <Language key={i} language={language} addFilter={addFilter} />
                 ))}
 
 

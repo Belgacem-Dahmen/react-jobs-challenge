@@ -1,0 +1,64 @@
+.filter-input {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 10px;
+    min-width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 120px;
+    left: 20;
+    right: 20;
+    z-index: 1;
+}
+
+.filters-tags-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: 75%;
+}
+
+.filters {
+
+    min-width: 100%;
+}
+
+.filter {
+    background-color: var(--color-neutral-light-grayish-cyan-filter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.filter__text {
+    color: var(--color-primary-desaturated-dark-cyan);
+    padding: 5px 10px;
+    font-weight: 700;
+
+}
+
+.filter__btn {
+    background-color: var(--color-primary-desaturated-dark-cyan);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+
+.filter__clear-btn {
+    border: none;
+    background-color: transparent;
+    min-height: 100%;
+
+}

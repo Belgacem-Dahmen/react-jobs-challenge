@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Job from '../Job/Job'
+import FilterInput from '../FilterInput/FilterInput'
 import "./JobList.css"
 
 
@@ -155,17 +156,41 @@ const jobs = [
     "tools": ["React", "Sass"]
   }
 ]
-
 function JobList() {
+  const [currentFilters, setCurrentFilters] = useState([]);
+  console.log(currentFilters);
+
+  const addFilter = (newFilter) => {
+    setCurrentFilters([...currentFilters, newFilter]);
+    console.log(currentFilters);
+  };
+
+
+  const filteredJobs = currentFilters.length > 0 ?
+    jobs.filter(job =>
+      job.languages.some(lang => currentFilters.includes(lang)) ||
+      job.tools.some(tool => currentFilters.includes(tool))
+    ) :
+    jobs;
+
+
+
+
   return (
+    <>
 
-
-    <div className='jobList'>
-      {jobs.map((job) => (
-        <Job key={job.id} job={job} />
-      ))}
-
-    </div>
+      <div className='jobList'>
+        {currentFilters.length > 0 ? <FilterInput currentFilters={currentFilters} /> : null}
+        {filteredJobs.length > 0
+          ? filteredJobs.map((job) => (
+            <Job key={job.id} job={job} addFilter={addFilter} />
+          ))
+          : jobs.map((job) => (
+            <Job key={job.id} job={job} addFilter={addFilter} />
+          ))
+        }
+      </div>
+    </>
   )
 }
 
