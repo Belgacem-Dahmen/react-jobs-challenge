@@ -154,6 +154,20 @@ const jobs = [
     "location": "Worldwide",
     "languages": ["JavaScript"],
     "tools": ["React", "Sass"]
+  }, {
+    "id": 11,
+    "company": "Infopro Digital",
+    "logo": "./images/logo-ipda.png",
+    "new": false,
+    "featured": false,
+    "position": "Back-end Dev",
+    "role": "Backend",
+    "level": "Junior",
+    "postedAt": "2mo ago",
+    "contract": "Full Time",
+    "location": "Tunisia",
+    "languages": ["php"],
+    "tools": ["Laravel", "Sass"]
   }
 ]
 function JobList() {
@@ -161,7 +175,7 @@ function JobList() {
 
 
   const addFilter = (newFilter) => {
-    if (!currentFilters.includes(newFilter) ) {
+    if (!currentFilters.includes(newFilter)) {
       setCurrentFilters([...currentFilters, newFilter]);
 
     }
@@ -174,12 +188,14 @@ function JobList() {
     setCurrentFilters([])
   }
 
-  const filteredJobs = currentFilters.length > 0 ?
-    jobs.filter(job =>
-      job.languages.some(lang => currentFilters.includes(lang)) ||
-      job.tools.some(tool => currentFilters.includes(tool))
-    ) :
-    jobs;
+  const filteredJobs = currentFilters.length > 0
+    ? jobs.filter(job => {
+      const hasMatchingLanguage = job.languages.some(lang => currentFilters.includes(lang));
+      const hasMatchingTool = job.tools.some(tool => currentFilters.includes(tool));
+      return hasMatchingLanguage || hasMatchingTool;
+    })
+    : jobs;
+
 
 
 
