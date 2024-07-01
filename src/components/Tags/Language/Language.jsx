@@ -11,8 +11,7 @@ function Language(props) {
 
 
     const handleClick = () => {
-        const newFilter = language; // La valeur à ajouter au tableau
-        console.log(language)
+        const newFilter = language;
         addFilter(newFilter);
     }
     return (

@@ -158,13 +158,21 @@ const jobs = [
 ]
 function JobList() {
   const [currentFilters, setCurrentFilters] = useState([]);
-  console.log(currentFilters);
+
 
   const addFilter = (newFilter) => {
-    setCurrentFilters([...currentFilters, newFilter]);
-    console.log(currentFilters);
-  };
+    if (!currentFilters.includes(newFilter) ) {
+      setCurrentFilters([...currentFilters, newFilter]);
 
+    }
+
+  };
+  const removeFilter = (filterToRemove) => {
+    return setCurrentFilters(currentFilters.filter(filter => filter !== filterToRemove));
+  }
+  const clearFilters = () => {
+    setCurrentFilters([])
+  }
 
   const filteredJobs = currentFilters.length > 0 ?
     jobs.filter(job =>
@@ -180,7 +188,7 @@ function JobList() {
     <>
 
       <div className='jobList'>
-        {currentFilters.length > 0 ? <FilterInput currentFilters={currentFilters} /> : null}
+        {currentFilters.length > 0 ? <FilterInput currentFilters={currentFilters} clearFilters={clearFilters} removeFilter={removeFilter} /> : null}
         {filteredJobs.length > 0
           ? filteredJobs.map((job) => (
             <Job key={job.id} job={job} addFilter={addFilter} />
